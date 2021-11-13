@@ -6,15 +6,22 @@ import OrderForm from "./Pages/OrderForm";
 import Confirmation from "./Pages/Confirmation";
 import NotFound from "./Pages/NotFound";
 
+import "./App.css";
+
 const App = () => {
   return (
     <>
-      <h1>Lambda Eats</h1>
-
-      <Link to="/">Home</Link>
-      <Link id="order-pizza" to="/pizza">
-        Order
-      </Link>
+      <nav>
+        <div id="logo-container">
+          <Link to="/">Lambda Eats</Link>
+        </div>
+        <div id="link-container">
+          <Link to="/">Home</Link>
+          <Link id="order-pizza" to="/pizza">
+            Order
+          </Link>
+        </div>
+      </nav>
 
       <Switch>
         <Route exact path="/" component={Home} />

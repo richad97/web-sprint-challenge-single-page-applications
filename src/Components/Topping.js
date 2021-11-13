@@ -1,5 +1,3 @@
-import OrderForm from "../Pages/OrderForm";
-
 export default function Topping(props) {
   const { name, onChange, orderForm } = props;
   return (

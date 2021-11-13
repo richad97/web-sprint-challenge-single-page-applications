@@ -91,48 +91,49 @@ export default function OrderForm() {
   }, [orderForm]);
 
   return (
-    <div>
+    <form onSubmit={onSubmit} id="pizza-form">
       <h1>Order Form</h1>
-      <form onSubmit={onSubmit} id="pizza-form">
-        <label>
-          Name:
-          <input
-            onChange={onChange}
-            value={orderForm.name}
-            name="name"
-            id="name-input"
-            type="text"
-          />
-          <p>{errors.name}</p>
-        </label>
-        <label>
-          Size:
-          <select
-            onChange={onChange}
-            value={orderForm.size}
-            name="size"
-            id="size-dropdown"
-          >
-            <option value="">Select Size</option>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-          </select>
-          <p>{errors.size}</p>
-        </label>
-        <div>
-          Toppings:
-          {toppings.map((topping, index) => {
-            return (
-              <Topping
-                orderForm={orderForm}
-                name={topping}
-                onChange={onChange}
-                key={index}
-              />
-            );
-          })}
-        </div>
+      <label className="labels">
+        Name:
+        <input
+          onChange={onChange}
+          value={orderForm.name}
+          name="name"
+          id="name-input"
+          type="text"
+        />
+        <p>{errors.name}</p>
+      </label>
+      <label className="labels">
+        Size:
+        <select
+          onChange={onChange}
+          value={orderForm.size}
+          name="size"
+          id="size-dropdown"
+        >
+          <option value="">Select Size</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+        </select>
+        <p>{errors.size}</p>
+      </label>
+      <div className="labels">
+        Toppings:
+        {toppings.map((topping, index) => {
+          return (
+            <Topping
+              orderForm={orderForm}
+              name={topping}
+              onChange={onChange}
+              key={index}
+            />
+          );
+        })}
+      </div>
+      <label className="labels">
+        Comment:
         <textarea
           onChange={onChange}
           name="special"
@@ -141,10 +142,10 @@ export default function OrderForm() {
           cols="50"
           maxLength="50"
         />
-        <button disabled={disabled} id="order-button">
-          Order
-        </button>
-      </form>
-    </div>
+      </label>
+      <button disabled={disabled} id="order-button">
+        Order
+      </button>
+    </form>
   );
 }

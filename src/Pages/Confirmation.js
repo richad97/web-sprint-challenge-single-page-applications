@@ -4,7 +4,7 @@ export default function Confirmation() {
   const { data } = useParams();
   const obj = JSON.parse(data);
   return (
-    <div>
+    <div id="confirmation-div">
       <h1>Confirmation</h1>
       <h2>Thanks {obj.name}!</h2>
       <p>Your order has been processed and will arrive shortly!</p>
